@@ -8,22 +8,26 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="/resources/public/img/icon.ico">
+    <link rel="icon" href="resources/public/img/icon.ico">
 
     <title>登录</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/resources/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="resources/public/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="/resources/module/login/css/signin.css" rel="stylesheet">
-
+    <link href="resources/module/login/css/signin.css" rel="stylesheet">
+    <script src="resources/public/js/jquery-3.2.1.min.js"></script>
+    <script src="resources/public/js/bootstrap.js"></script>
+    <script src="resources/public/js/vue.js"></script>
 </head>
 
 <body>
-
 <div class="container">
 
     <form class="form-signin">
+        <div id="app-6">
+            <input v-model="message" class="form-control">
+        </div>
         <h2 class="form-signin-heading">登录</h2>
         <label for="inputEmail" class="sr-only">username</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="用户名" required autofocus>
@@ -39,7 +43,13 @@
     </form>
 
 </div>
-
-
 </body>
+<script type="application/javascript">
+    var app6 = new Vue({
+        el: '#app-6',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
 </html>

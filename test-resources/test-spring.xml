@@ -76,6 +76,7 @@
     <aop:config proxy-target-class="true">
         <aop:pointcut id="serviceAspect" expression="execution(* com.module.*.service.*.*(..))"/>
         <aop:pointcut id="daoAspect" expression="execution(* com.module.*.dao.*.*(..))"/>
+        <aop:advisor advice-ref="txAdviceDefault" pointcut-ref="daoAspect"/>
         <aop:advisor advice-ref="txAdviceDefault" pointcut-ref="serviceAspect"/>
     </aop:config>
 

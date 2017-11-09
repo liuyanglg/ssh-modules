@@ -65,16 +65,17 @@
     <tx:annotation-driven transaction-manager="transactionManagerDefault"/>
     <tx:advice id="txAdviceDefault" transaction-manager="transactionManagerDefault">
         <tx:attributes>
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="count*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="list*" propagation="SUPPORTS" read-only="true"/>
-            <tx:method name="*" propagation="REQUIRED" read-only="false"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="count*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="list*" propagation="SUPPORTS" read-only="true" />
+            <tx:method name="*" read-only="false" propagation="REQUIRED" />
         </tx:attributes>
     </tx:advice>
 
     <aop:config proxy-target-class="true">
         <aop:pointcut id="serviceAspect" expression="execution(* com.module.*.service.*.*(..))"/>
+        <aop:pointcut id="daoAspect" expression="execution(* com.module.*.dao.*.*(..))"/>
         <aop:advisor advice-ref="txAdviceDefault" pointcut-ref="serviceAspect"/>
     </aop:config>
 

@@ -36,6 +36,4 @@
             <result name="input">/resources/public/html/error/500.html</result>
         </global-results>
     </package>
-
-    <include file="com/**/*struts*.xml"/>
 </struts>

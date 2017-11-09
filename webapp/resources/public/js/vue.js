@@ -4299,7 +4299,7 @@ function initRender (vm) {
   // args order: tag, data, children, normalizationType, alwaysNormalize
   // internal version is used by render functions compiled from templates
   vm._c = function (a, b, c, d) { return createElement(vm, a, b, c, d, false); };
-  // normalization is always applied for the public version, used in
+  // normalization is always applied for the com.public version, used in
   // user-written render functions.
   vm.$createElement = function (a, b, c, d) { return createElement(vm, a, b, c, d, true); };
 
@@ -4845,7 +4845,7 @@ function initGlobalAPI (Vue) {
   Object.defineProperty(Vue, 'config', configDef);
 
   // exposed util methods.
-  // NOTE: these are not considered part of the public API - avoid relying on
+  // NOTE: these are not considered part of the com.public API - avoid relying on
   // them unless you are aware of the risk.
   Vue.util = {
     warn: warn,
@@ -5420,7 +5420,7 @@ function createPatchFunction (backend) {
     var i;
     // hack for #4339: a reactivated component with inner transition
     // does not trigger because the inner node's created hooks are not called
-    // again. It's not ideal to involve module-specific logic in here but
+    // again. It's not ideal to involve com.module-specific logic in here but
     // there doesn't seem to be a better way to do it.
     var innerNode = vnode;
     while (innerNode.componentInstance) {
@@ -7588,7 +7588,7 @@ var platformModules = [
 
 /*  */
 
-// the directive module should be applied last, after all
+// the directive com.module should be applied last, after all
 // built-in modules have been applied.
 var modules = platformModules.concat(baseModules);
 
@@ -7944,7 +7944,7 @@ var Transition = {
     var oldChild = getRealChild(oldRawChild);
 
     // mark v-show
-    // so that the transition module can hand over the control to the directive
+    // so that the transition com.module can hand over the control to the directive
     if (child.data.directives && child.data.directives.some(function (d) { return d.name === 'show'; })) {
       child.data.show = true;
     }
@@ -8173,7 +8173,7 @@ extend(Vue$3.options.components, platformComponents);
 // install platform patch function
 Vue$3.prototype.__patch__ = inBrowser ? patch : noop;
 
-// public mount method
+// com.public mount method
 Vue$3.prototype.$mount = function (
   el,
   hydrating
@@ -9757,7 +9757,7 @@ function genElement (el, state) {
       var children = el.inlineTemplate ? null : genChildren(el, state, true);
       code = "_c('" + (el.tag) + "'" + (data ? ("," + data) : '') + (children ? ("," + children) : '') + ")";
     }
-    // module transforms
+    // com.module transforms
     for (var i = 0; i < state.transforms.length; i++) {
       code = state.transforms[i](el, code);
     }
@@ -9895,7 +9895,7 @@ function genData$2 (el, state) {
   if (el.component) {
     data += "tag:\"" + (el.tag) + "\",";
   }
-  // module data generation functions
+  // com.module data generation functions
   for (var i = 0; i < state.dataGenFns.length; i++) {
     data += state.dataGenFns[i](el);
   }

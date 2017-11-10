@@ -5,9 +5,11 @@
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
-    <package name="login" namespace="/module/login" extends="global-package">
+    <package name="login" namespace="/login" extends="global-package">
         <action name="*" class="com.module.login.action.LoginAction"
                 method="{1}Action">
+            <result name="success">/resources/public/jsp/success.jsp</result>
+            <result name="error">resources/public/jsp/index.jsp</result>
             <!--<result name="compare">/companyCard/cardAudit/compare.jsp</result>-->
         </action>
     </package>

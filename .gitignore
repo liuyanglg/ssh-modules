@@ -1,7 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
-.idea/
 *.iml
+*.log
+.idea/
 target/
 build/
 out/
+webapp/WEB-INF/classes/
+webapp/WEB-INF/lib/
 

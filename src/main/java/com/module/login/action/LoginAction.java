@@ -6,7 +6,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
-public class LoginAction extends ActionSupport{
+public class LoginAction extends ActionSupport {
 
     private UserDO user;
     @Qualifier("loginService")
@@ -21,12 +21,14 @@ public class LoginAction extends ActionSupport{
         this.user = user;
     }
 
-    public void userLoginAction(){
-        Boolean success = false;
-        UserDO loginUser = loginService.findByNamePassword(user.getUsername(), user.getPassword());
-        if(loginUser!=null){
-            success = true;
+    public String userLoginAction() {
+        if (user == null) {
+            return "error";
         }
+        UserDO loginUser = loginService.findByNamePassword(user.getUsername(), user.getPassword());
+        if (loginUser == null) {
+            return "error";
+        }
+        return "success";
     }
-
 }

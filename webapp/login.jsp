@@ -65,7 +65,6 @@
     </div>
 </div>
 
-<%--<script src="<%=request.getContextPath()%>/resources/module/login/js/modernizr-2.6.2.min.js"></script>--%>
 <script src="<%=request.getContextPath()%>/resources/module/login/js/main.js"></script>
 </body>
 </html>

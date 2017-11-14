@@ -1,15 +1,15 @@
 package com.module.user.action;
 
-import com.module.user.dao.UserDao;
 import com.module.user.model.UserDO;
+import com.module.user.service.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 public class UserAction extends ActionSupport {
     @Autowired
-    @Qualifier("userDao")
-    private UserDao userDao;
+    @Qualifier("userService")
+    private UserService userService;
 
     private UserDO user;
 
@@ -22,6 +22,6 @@ public class UserAction extends ActionSupport {
     }
 
     public void queryUserAction() {
-        userDao.find(UserDO.class, user);
+        userService.find(UserDO.class, user);
     }
 }

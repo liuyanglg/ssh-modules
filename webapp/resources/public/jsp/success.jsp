@@ -39,7 +39,55 @@
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">用户数据</h1>
+        <div class="table-responsive">
+            <table id="user_table" class="table table-striped" data-url="user/queryUser.action">
+                <thead></thead>
+                <tr>
+                    <th data-field="username">用户名</th>
+                    <th data-field="sex">性别</th>
+                    <th data-field="email">邮箱</th>
+                    <th data-field="phone">手机</th>
+                    <th data-field="userType">用户类型</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
     </div>
+</div>
+</div>
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("bootstrap", "table-test");
+//        $.ajax({
+//            url: 'user/queryUser.action',
+//            method: 'post',
+//            success:function (data) {
+//                $("#user_table").load(data.rows);
+//            }
+//        });
+        $("#user_table").bootstrapTable({
+            url: 'user/queryUser.action',
+            method: 'post',
+            columns: [{
+                field: 'username',
+                title: '用户名'
+            }, {
+                field: 'sex',
+                title: '性别'
+            }, {
+                field: 'email',
+                title: '邮箱'
+            }, {
+                field: 'phone',
+                title: '手机'
+            }, {
+                field: 'userType',
+                title: '用户类型'
+            },]
+        });
+
+    });
+</script>

@@ -23,7 +23,7 @@
 <div class="container">
     <div class="row">
         <div id="user" class="col-md-4 col-md-offset-4">
-            <form action="/login/login.action" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+            <form action="login/userLogin.action" class="fh5co-form animate-box" data-animate-effect="fadeIn">
                 <h2>Sign In</h2>
                 <div class="form-group">
                     <label for="module_login_username" class="sr-only">Username</label>

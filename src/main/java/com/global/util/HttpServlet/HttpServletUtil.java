@@ -26,14 +26,16 @@ public class HttpServletUtil {
     }
 
     public static void sendJson(String json) {
-        response = getServletResponse();
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json");
-        PrintWriter out = null;
+//        response = getServletResponse();
+//        response.setCharacterEncoding("UTF-8");
+//        response.setContentType("application/json");
+//        PrintWriter out = null;
         try {
-            out = response.getWriter();
+            getServletResponse().setCharacterEncoding("UTF-8");
+            getServletResponse().setContentType("application/json");
+            PrintWriter out = getServletResponse().getWriter();
             out.write(json);
-            out.flush();
+//            out.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

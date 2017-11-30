@@ -40,16 +40,7 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">用户数据</h1>
         <div class="table-responsive">
-            <table id="user_table" class="table table-striped" data-url="user/queryUser.action">
-                <thead></thead>
-                <tr>
-                    <th data-field="username">用户名</th>
-                    <th data-field="sex">性别</th>
-                    <th data-field="email">邮箱</th>
-                    <th data-field="phone">手机</th>
-                    <th data-field="userType">用户类型</th>
-                </tr>
-                </thead>
+            <table id="user_table" class="table table-striped">
             </table>
         </div>
     </div>
@@ -61,16 +52,20 @@
 <script type="text/javascript">
     $(document).ready(function () {
         console.log("bootstrap", "table-test");
-//        $.ajax({
-//            url: 'user/queryUser.action',
-//            method: 'post',
-//            success:function (data) {
-//                $("#user_table").load(data.rows);
-//            }
-//        });
+
+//        $("#user_table").bootstrapTable("destroy");
         $("#user_table").bootstrapTable({
             url: 'user/queryUser.action',
             method: 'post',
+            striped: true,  //表格显示条纹
+            pagination: true, //启动分页
+            pageSize: 1,  //每页显示的记录数
+            pageNumber:1, //当前第几页
+            pageList: [5, 10, 15, 20, 25],  //记录数可选列表
+            search: false,  //是否启用查询
+            showColumns: true,  //显示下拉框勾选要显示的列
+            showRefresh: true,  //显示刷新按钮
+            sidePagination: "server",
             columns: [{
                 field: 'username',
                 title: '用户名'
@@ -86,7 +81,7 @@
             }, {
                 field: 'userType',
                 title: '用户类型'
-            },]
+            }]
         });
 
     });
